@@ -90,8 +90,7 @@ public struct OAuth {
     }
     
     private func getBaseString(request: RequestData, oauthData: OAuthData) throws -> String {
-        var params: Array<Parameter> = try self.deParamUrl(url: request.url)
-        params.append(contentsOf: oauthData.asParameters())
+        var params: Array<Parameter> = try self.deParamUrl(url: request.url) + oauthData.asParameters()
         params.sort()
         return "\(self.signatureMethod.uppercased())&\(OAuth.percentEncode(value: request.url))&\(OAuth.percentEncode(value: OAuth.formEncode(parameters: params)))"
     }
