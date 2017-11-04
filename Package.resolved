@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CryptoSwift",
+        "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "21f3a9ce996b9dbf02992724a3e978ab43c0c333",
+          "version": "0.7.0"
+        }
+      },
+      {
+        "package": "PerfectLib",
+        "repositoryURL": "https://github.com/PerfectlySoft/Perfect.git",
+        "state": {
+          "branch": null,
+          "revision": "fc5186e209f0621fe50390ec1fb02bd9d3ef0e57",
+          "version": "3.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

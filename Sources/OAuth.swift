@@ -103,7 +103,7 @@ public struct OAuth {
     private func percentEncode(values: Array<String>) -> String {
         var result = "";
         for value in values {
-            if (result.characters.count > 0) {
+            if (result.count > 0) {
                 result.append("&")
             }
             result.append(value)
@@ -119,7 +119,7 @@ public struct OAuth {
             #if os(Linux)
                 let idx = Int(random() % wordCharacters.count)
             #else
-                let idx = Int(arc4random_uniform(UInt32(wordCharacters.characters.count)))
+                let idx = Int(arc4random_uniform(UInt32(wordCharacters.count)))
             #endif
             result += wordCharacters[idx]
         }

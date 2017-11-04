@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "OAuth",
     dependencies: [
-        .Package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", Version(0,6,9)),
-        .Package(url: "https://github.com/PerfectlySoft/Perfect.git", Version(3,0,0))
+        .Package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", Version(0,7,0)),
+        .Package(url: "https://github.com/PerfectlySoft/Perfect.git", majorVersion: 3)
     ]
 )
