@@ -12,9 +12,9 @@ public struct Parameter: Equatable, CustomStringConvertible, Hashable, Comparabl
     
     public var description: String {
         guard let val = value else {
-            return "\(OAuth.percentEncode(value: key)) = nil)"
+            return "\(OAuth1A.percentEncode(value: key)) = nil)"
         }
-        return "\(OAuth.percentEncode(value: key)) = \(OAuth.percentEncode(value: val))"
+        return "\(OAuth1A.percentEncode(value: key)) = \(OAuth1A.percentEncode(value: val))"
     }
     
     public var hashValue: Int {

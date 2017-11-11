@@ -92,12 +92,12 @@ public struct OAuth1A {
     private func getBaseString(request: RequestData, oauthData: OAuthData) throws -> String {
         var params: Array<Parameter> = try self.deParamUrl(url: request.url) + oauthData.asParameters()
         params.sort()
-        return "\(self.signatureMethod.uppercased())&\(OAuth.percentEncode(value: request.url))&\(OAuth.percentEncode(value: OAuth.formEncode(parameters: params)))"
+        return "\(self.signatureMethod.uppercased())&\(OAuth1A.percentEncode(value: request.url))&\(OAuth1A.percentEncode(value: OAuth1A.formEncode(parameters: params)))"
     }
     
     private func getSigningKey(tokenSecret: String?) -> String {
         let secret = tokenSecret ?? ""
-        return "\(OAuth.percentEncode(value: self.consumer.secret))&\(OAuth.percentEncode(value: secret))"
+        return "\(OAuth1A.percentEncode(value: self.consumer.secret))&\(OAuth1A.percentEncode(value: secret))"
     }
     
     private func percentEncode(values: Array<String>) -> String {
@@ -155,7 +155,7 @@ public struct OAuth1A {
         let nvp = frm.components(separatedBy: "&")
         for next in nvp {
             guard let range = frm.range(of: "=") else {
-                try result.append(Parameter(k: OAuth.decodePercent(value: next), val: nil))
+                try result.append(Parameter(k: OAuth1A.decodePercent(value: next), val: nil))
                 continue
             }
             let name = next.substring(to: range.lowerBound)
@@ -176,9 +176,9 @@ public struct OAuth1A {
                 result.append("&")
             }
             if let value = next.value {
-                result.append("\(OAuth.percentEncode(value: next.key))=\(OAuth.percentEncode(value: value))")
+                result.append("\(OAuth1A.percentEncode(value: next.key))=\(OAuth1A.percentEncode(value: value))")
             } else {
-                result.append("\(OAuth.percentEncode(value: next.key))=")
+                result.append("\(OAuth1A.percentEncode(value: next.key))=")
             }
         }
         return result;

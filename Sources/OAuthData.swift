@@ -36,19 +36,19 @@ public class OAuthData {
     
     public func asParameters() -> Array<Parameter> {
         var result: Array<Parameter> = []
-        result.append(Parameter(k: OAuth.OAUTH_CONSUMER_KEY, val: self.consumerKey))
-        result.append(Parameter(k: OAuth.OAUTH_NONCE, val: self.nonce))
-        result.append(Parameter(k: OAuth.OAUTH_SIGNATURE_METHOD, val: self.signatureMethod))
-        result.append(Parameter(k: OAuth.OAUTH_TIMESTAMP, val: self.timestamp))
-        result.append(Parameter(k: OAuth.OAUTH_VERSION, val: self.oauthVersion))
+        result.append(Parameter(k: OAuth1A.OAUTH_CONSUMER_KEY, val: self.consumerKey))
+        result.append(Parameter(k: OAuth1A.OAUTH_NONCE, val: self.nonce))
+        result.append(Parameter(k: OAuth1A.OAUTH_SIGNATURE_METHOD, val: self.signatureMethod))
+        result.append(Parameter(k: OAuth1A.OAUTH_TIMESTAMP, val: self.timestamp))
+        result.append(Parameter(k: OAuth1A.OAUTH_VERSION, val: self.oauthVersion))
         if let token = self.oauthToken {
-            result.append(Parameter(k: OAuth.OAUTH_TOKEN, val: token))
+            result.append(Parameter(k: OAuth1A.OAUTH_TOKEN, val: token))
         }
         if let bodyHash = self.oauthBodyHash {
-            result.append(Parameter(k: OAuth.OAUTH_BODY_HASH, val: bodyHash))
+            result.append(Parameter(k: OAuth1A.OAUTH_BODY_HASH, val: bodyHash))
         }
         if let signature = self.oauthSignature {
-            result.append(Parameter(k: OAuth.OAUTH_SIGNATURE, val: signature))
+            result.append(Parameter(k: OAuth1A.OAUTH_SIGNATURE, val: signature))
         }
         result.sort()
         return result
