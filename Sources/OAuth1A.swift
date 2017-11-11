@@ -23,7 +23,7 @@ public enum StringEncodeError: Error {
 
 public typealias HashFunction = (String, String) throws -> String
 
-public struct OAuth {
+public struct OAuth1A {
     
     public static let VERSION_1_0 = "1.0"
     //only support UTF-8
